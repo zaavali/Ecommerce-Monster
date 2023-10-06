@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+    font-family: croissant one;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100% ;
+    top: 0;
+    position: fixed;
+    z-index: 1001;
+    background-color: black;
+    padding: 0 10px;
+    height: 70px;
+
+}
+.navbar .btns{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+.navbar .btns button{
+    width: 100px;
+    padding: 10px 20px;
+    color: white;
+    
+}
+.navbar .btns button:first-child{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border: none;
+    outline: none;
+}
+.navbar .btns button:last-child{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.navbar .logo img{
+    width: 100px;
+    height: 70px;
+}
+.navbar .link ul{
+    list-style: none;
+
+}
+.navbar .link ul li{
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 20px;
+
+}
+.navbar .link ul li a{
+    text-decoration: none;
+    color: white;
+    
+}
+.btns_nav  img{
+     width: 25px;
+     height: 25px;
+}
+.btns_nav button{
+    background-color: black;
+    outline: none;
+    border: none;
+    margin: 0 8px;
+    cursor: pointer;
+    position: relative;
+}
+.btns_nav button a {
+    color: white;
+    font-weight: bold;
+    font-family: croissant one;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btns_nav .panier b {
+    color: red;
+    position: absolute;
+    top: -5px;
+    right:0 px;
+   
+    
+}
+
+/* profil */
+.logins{
+    border: 1px solid red;
+}
+.profil-container{
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    padding: 20px;
+    z-index: 4000;
+    background-color: black;
+    
+}
+
+
+.profil-container ul{
+    list-style: none;
+}
+.profil-container ul li{
+    display: block;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    
+    
+}
+.profil-container ul li img{
+    margin-right: 3px;
+}
+.profil-container ul li a{
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+
+
