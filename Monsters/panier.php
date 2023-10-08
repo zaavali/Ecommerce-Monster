@@ -7,7 +7,7 @@ if (isset($_SESSION['panier'])) {
     $ids = array_keys($_SESSION['panier']);
 
     if (!empty($ids)) {
-        $conn = new mysqli("localhost", "root", "", "monsters");
+        $conn = new mysqli("localhost", "root", "", "monster");
 
         if ($conn->connect_error) {
             die("Erreur de connexion à la base de données: " . $conn->connect_error);
@@ -73,6 +73,10 @@ endif;
             <button class="login"><a href="./connexion.php"><img src="./Assets/utilisateur.png" alt=""> Se connecter</a></button>
             
             <?php endif; ?>
+            <button id="panier_button" class="panier">
+                    <img src="./Assets/panier.png" alt="">
+                    <b color="red"> <?= is_array($_SESSION['panier']) ? array_sum($_SESSION['panier']) : 0 ?></b>               
+               </button>
                     
             </div>
          </div>

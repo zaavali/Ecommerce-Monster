@@ -332,3 +332,100 @@ if ($userLogin['admin'] == 1) {
               // Gestion des erreurs de connexion
               echo "Erreur de connexion. Veuillez vérifier vos informations.";
           }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <?php
+// Vérifier si l'utilisateur est connecté
+session_start();
+if (!isset($_SESSION['id'])) {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header('Location: connexion.php');
+    exit();
+}
+
+// Inclure votre fichier de configuration de la base de données
+include('config.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
+    // Récupérer les nouvelles valeurs des champs
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $mdp = $_POST['mdp'];
+    $mail = $_POST['mail'];
+
+    // Évitez les failles de sécurité en utilisant des requêtes préparées
+    $stmt = $conn->prepare("UPDATE utilisateurs SET nom=?, prenom=?, mdp=?, mail=? WHERE id=?");
+    $stmt->execute([$nom, $prenom, $mdp, $mail, $_SESSION['id']]);
+
+    // Mettre à jour les informations de session si nécessaire
+    $_SESSION['username']['nom'] = $nom;
+    $_SESSION['username']['prenom'] = $prenom;
+    $_SESSION['username']['mail'] = $mail;
+
+    // Rediriger l'utilisateur vers la page de profil ou une autre page appropriée après la mise à jour
+    header('Location: profil.php');
+    exit();
+}
+
+// Récupérer les informations de l'utilisateur depuis la base de données
+$stmt = $conn->prepare("SELECT * FROM utilisateurs WHERE id = ?");
+$stmt->execute([$_SESSION['id']]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Afficher le formulaire de mise à jour avec les informations actuelles de l'utilisateur
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier le profil</title>
+</head>
+<body>
+    <h1>Modifier le profil</h1>
+    <form action="modifier.php" method="post">
+        <div>
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" value="<?= $user['nom'] ?>" required>
+        </div>
+        <div>
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" value="<?= $user['prenom'] ?>" required>
+        </div>
+        <div>
+            <label for="mdp">Mot de passe :</label>
+            <input type="password" id="mdp" name="mdp" value="<?= $user['mdp'] ?>" required>
+        </div>
+        <div>
+            <label for="mail">Email :</label>
+            <input type="email" id="mail" name="mail" value="<?= $user['mail'] ?>" required>
+        </div>
+        <button type="submit" name="update">Enregistrer les modifications</button>
+    </form>
+</body>
+</html>

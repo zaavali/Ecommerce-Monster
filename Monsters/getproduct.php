@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
     $productId = $_GET['id'];
 
     // Connexion à la base de données
-    $conn = new mysqli("localhost", "root", "", "monsters");
+    $conn = new mysqli("localhost", "root", "", "monster");
 
     if ($conn->connect_error) {
         die("Erreur de connexion à la base de données: " . $conn->connect_error);

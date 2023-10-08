@@ -226,6 +226,26 @@ input[type="submit"]{
 .container.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
+.notification{
+  color: white;
+}
+.englobe_valide{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: green;
+  color: white;
+  z-index: 77777777;
+}
 
-
+.englobe_valide .valid p{
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 

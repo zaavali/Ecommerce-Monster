@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-$dsn= "mysql:dbname=monsters;host=localhost";
+$dsn= "mysql:dbname=monster;host=localhost";
 $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
 $db = new PDO($dsn,"root","",$options);
 $sql = "SELECT * FROM  utilisateurs";
@@ -23,7 +23,7 @@ if (isset($_SESSION['panier'])) {
     $ids = array_keys($_SESSION['panier']);
     
     if (!empty($ids)) {
-        $conn = new mysqli("localhost", "root", "", "monsters");
+        $conn = new mysqli("localhost", "root", "", "monster");
 
         if ($conn->connect_error) {
             die("Erreur de connexion à la base de données: " . $conn->connect_error);
@@ -47,7 +47,7 @@ if (isset($_SESSION['panier'])) {
 }
 ?>
 <?php
-$conn = new mysqli("localhost", "root", "", "monsters");
+$conn = new mysqli("localhost", "root", "", "monster");
 
 if ($conn->connect_error) {
     die("Erreur de connexion à la base de données: " . $conn->connect_error);
@@ -69,6 +69,7 @@ if ($resultats === false) {
 }
 
 ?>
+
 
 
 
@@ -180,51 +181,49 @@ if ($resultats === false) {
 <?php endif; ?>
 </div>
 </div> 
-    <div class="profil_containers">
-        <div class="grid_profil">
-            <div class="grid">
-           
-            <div class="right">
-                <h1>Mes coordonnées</h1>
-                
-
-                <div class="wrapthem">
-                    <form action="" method="POST">
-
-                    <div class="formleft">
-                    <div class="elem">
-                    <label for="">Nom</label>
-                    <input type="text" name="nom" value=" <?= $_SESSION['username']['nom'];?>">
-                    </div>
-
-                    <div class="elem">
-                    <label for="">prenom</label>
-                    <input type="text" name="prenom" value="<?= $_SESSION['username']['prenom']; ?>">
-                    </div>
-
-
-                    </div>
-
-                    <div class="formright">
-                    <div class="elem">
-                    <label for="">Mot de passe</label>
-                    <input type="password" name="mdp" value="" width="160px" height="180px">
-                    </div>
-
-                    <div class="elem">
-                    <label for="">Email</label>
-                    <input type="text" name="mail" value="<?= $_SESSION['username']['mail'] ?>">
-                    </div>
-
-
-                    <div class="modif">
-                    <input type="submit" value="Enregistrer ">
-                    </div>   
-                    </div>
-                    </form>
-                </div>
+    <div class="profil_containers"> 
+    <div class="grid_profil">
+    <div class="grid">
+        <div class="right">
+            <h1>Mes coordonnées</h1>
+            <div class="wrapthem">
+            <form action="modif.php" method="POST">
+    <div class="formleft">
+        <div class="elem">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" value="<?= $_SESSION['username']['nom']; ?>">
+        </div>
+        <div class="elem">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" value="<?= $_SESSION['username']['prenom']; ?>">
+        </div>
+    </div>
+    <div class="formright">
+        <div class="elem">
+            <label for="new_password">Nouveau mot de passe</label>
+            <input type="password" name="new_password" id="new_password">
+        </div>
+        <div class="elem">
+            <label for="mail">Email</label>
+            <input type="text" name="mail" value="<?= $_SESSION['username']['mail'] ?>">
+        </div>
+        <div class="modif">
+            <input type="submit" value="Enregistrer">
+        </div>
+    </div>
+</form>
             </div>
         </div>
     </div>
+</div>
+
+    </div>
 </body>
 </html>
+
+
+
+
+<!-- ... Autre contenu HTML ... -->
+
+<!-- ... Autre contenu HTML ... -->

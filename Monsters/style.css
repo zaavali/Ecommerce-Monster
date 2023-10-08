@@ -313,6 +313,12 @@ body{
     bottom: 50px;
     right: 20px;
 }
+.grid_them .left  button a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
 /* les bouttons */
 
 
@@ -354,9 +360,21 @@ body{
 .tabs{
     display: flex;
     align-items:center ;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     margin: 20px 0 ;
+}
+
+.tabs div {
+    cursor: pointer;
+    margin: 0 20px;
+    font-size: 25px;
+    
+}
+
+.tabs .active {
+    border-bottom: 2px solid #abd70b ; 
+    font-weight: bold; 
 }
 
 .tabcontainer {
@@ -375,10 +393,10 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* background-color: #232424; */
     border-radius: 30px;
-    border: 1px solid greenyellow;
+  
 }
+
 .tabcontainer .card .bd_img{
     width: 100px;
     height: 250px;
@@ -431,6 +449,9 @@ body{
     width: 20px;
     height: 20px;
 }
+
+
+
 
 
 
@@ -518,7 +539,11 @@ footer  ul{
 .Affichage .left_product h3{
     margin: 20px 0;
 }
-.btns_achat{
+.profil-containerkj ul li a{
+    color: white;
+    text-decoration: none;
+}
+.btns_achat form{
     width: 100%;
     display: flex;
     align-items: center;
@@ -532,6 +557,7 @@ footer  ul{
     height: 35px;
     outline: none;
     border: none;
+    text-align: center;
 
 
 }
@@ -611,7 +637,7 @@ footer  ul{
     right: 10px;
  }
  .add_admin:hover{
-    background-color: #007BFF;
+    background-color: #abd70b;
  }
  .add_admin button{
     background-color: black;
@@ -678,12 +704,11 @@ footer  ul{
 }
 
 .overlay input[type="submit"] {
-    background-color: #007BFF;
+    background-color: #abd70b;
     color: white;
     cursor: pointer;
 }
 
-/* Style pour le bouton "Add" */
 .add_admin_produit {
     background-color: #abd70b;
     color: white;
@@ -703,3 +728,14 @@ footer  ul{
 .show_admin{
     display: block;
 }
+
+
+
+
+
+
+
+
+
+/* admin */
+

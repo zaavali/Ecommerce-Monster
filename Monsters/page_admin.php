@@ -4,7 +4,7 @@ session_start();
 ?>
 
 <?php
-$conn = new mysqli("localhost", "root", "", "monsters");
+$conn = new mysqli("localhost", "root", "", "monster");
 
 if ($conn->connect_error) {
     die("Erreur de connexion à la base de données: " . $conn->connect_error);
@@ -52,13 +52,7 @@ if ($resultats === false) {
             <?php if (isset($_SESSION['username']) && is_array($_SESSION['username'])) : ?>
             <?php $prenom = $_SESSION['username']['prenom']; ?>
             <button id="logins" class="logins"><a > <img src="./Assets/utilisateur.png" alt=""> <?= $prenom ?></a></button>
-            <div class="profil-containerkj">
-            <ul>
-         
-           <li><img src="./Assets/logout.png" alt=""><a href="./deconnexion.php">Deconnexion</a></li>
-           </ul>
-         </div>
-
+            <button><a href="./deconnexion.php">Deconnexion</a></button>
             <?php else : ?>
             <button class="login"><a href="./connexion.php"><img src="./Assets/utilisateur.png" alt=""> Se connecter</a></button>
             
@@ -94,7 +88,14 @@ if ($resultats === false) {
        <label for="file">Choisir une image :</label>
         <input type="file" name="img" required>
         <input type="submit" value="Ajouter">
-   
+    </form>
+       <h1>Supprimer un élément de la base de données</h1>
+    <form action="suppression.php" method="POST">
+        <label for="id">ID de l'élément à supprimer :</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <input type="submit" value="Supprimer">
+    </form>
     </div>
     <div id="tab1Content" class="tabContent activecontent  ">  
     <div class="tabcontainer">
@@ -102,12 +103,11 @@ if ($resultats === false) {
     foreach ($resultats as $unproduit): ?>
         <div class="card">
             <div>
-            <!-- <a class="link_wrap" href="produit_details.php?id=<?= $unproduit['id'] ?>">       -->
+            <a class="link_wrap" href="produit_details.php?id=<?= $unproduit['id'] ?>">      
                 <img class="bd_img" src="<?= $unproduit['img'] ?>" />
                 <p class="nom_prod"><b><?= $unproduit['nom'] ?></b></p>
-                <p class="prix"><b><?= $unproduit['prix'] ?>.00€</b></p>
                
-           <!-- </a> -->
+            </a>
             <a href="suppression.php?id=<?= $unproduit['id'] ?>"><img src="./Assets/delete.png" alt="" width="20" height="20px"></a>
             </div>        
         </div>

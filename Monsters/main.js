@@ -63,14 +63,23 @@ function selectTab(tabIndex) {
         content.style.display = 'none';
     });
 
+    var tabs = document.querySelectorAll('.tabs div');
+    tabs.forEach(function (tab) {
+        tab.classList.remove('active');
+    });
+
     var selectedTabContent = document.getElementById('tab' + tabIndex + 'Content');
-    if (selectedTabContent) {
+    var selectedTab = document.getElementById('tab' + tabIndex);
+    if (selectedTabContent && selectedTab) {
         selectedTabContent.style.display = 'block';
+        selectedTab.classList.add('active');
     }
 }
+
 window.addEventListener('load', function () {
     selectTab(1);
 });
+
 
 
 

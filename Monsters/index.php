@@ -11,7 +11,7 @@ if (isset($_SESSION['panier'])) {
     $ids = array_keys($_SESSION['panier']);
     
     if (!empty($ids)) {
-        $conn = new mysqli("localhost", "root", "", "monsters");
+        $conn = new mysqli("localhost", "root", "", "monster");
 
         if ($conn->connect_error) {
             die("Erreur de connexion à la base de données: " . $conn->connect_error);
@@ -35,7 +35,7 @@ if (isset($_SESSION['panier'])) {
 }
 ?>
 <?php
-$conn = new mysqli("localhost", "root", "", "monsters");
+$conn = new mysqli("localhost", "root", "", "monster");
 
 if ($conn->connect_error) {
     die("Erreur de connexion à la base de données: " . $conn->connect_error);
@@ -84,9 +84,10 @@ if ($resultats === false) {
             <div class="link" >
                 <div>
                 <ul>
-                    <li><a href= "index.php" alt="">Accueil</li>
-                    <li><a href= "#tabcontainer" alt="">Produit</li>
-                    <li> <a href= "#footer" alt="">Contact</li>
+                    
+                    <li><a href="./index.php">Accueil</a> </li>
+                    <li > <a href="#produit">Produit</a></li>
+                    <li ><a href="#contact">Contact</a></li>
                 </ul>
                 </div>
             </div>
@@ -98,8 +99,6 @@ if ($resultats === false) {
             <ul>
            <li><img src="./Assets/utilisateur.png" alt=""> <a href="./profil.php">Mes coordonnées</a></li>
           <hr>
-          <li><img src="./Assets/lock.png" alt=""> <a href="">Changer de mot de passe</a></li>
-           <hr>
          
            <li><img src="./Assets/logout.png" alt=""><a href="./deconnexion.php">Deconnexion</a></li>
            </ul>
@@ -109,7 +108,6 @@ if ($resultats === false) {
             <button class="login"><a href="./connexion.php"><img src="./Assets/utilisateur.png" alt=""> Se connecter</a></button>
             
             <?php endif; ?>
-                <button class="like"><a href=""><img src="./Assets/like.png" alt=""></a></button>
                 <button id="panier_button" class="panier">
                     <img src="./Assets/panier.png" alt="">
                     <b color="red"> <?= is_array($_SESSION['panier']) ? array_sum($_SESSION['panier']) : 0 ?></b>               
@@ -179,7 +177,7 @@ if ($resultats === false) {
             <div>
             <h1>Boostez votre énergie avec Monster Energy.</h1>
             <div class="btn_shop1">
-                <button>Shop it</button>
+                <button><a href="#produit">Découvrir</a> </button>
             </div>
             </div>
         </div>
@@ -196,7 +194,7 @@ if ($resultats === false) {
             <div>
             <h1>Vivez l'expérience Monster Ultra : zéro calories, 100% saveur.</h1>
             <div class="btn_shop2">
-                <button>Shop it</button>
+                <button><a href="#produit">Découvrir</a></button>
             </div>
             </div>
         </div>
@@ -213,7 +211,7 @@ if ($resultats === false) {
             <div>
                 <h1>Un goût fruité pour dynamiser votre journée.</h1>
                 <div class="btn_shop3">
-                    <button>Shop it</button>
+                    <button><a href="#produit">Découvrir</a></button>
                 </div>
             </div>
         </div>
@@ -235,9 +233,9 @@ if ($resultats === false) {
    </div>
     </section>
 
-    <section class="produits">
+    <section class="produits" id="produit">
     <div class="tabs">
-    <div id="tab1" onClick="selectTab(1);">Tous les produits</div>
+    <div id="tab1" onClick="selectTab(1);" class="active">Tous les produits</div>
     <div id="tab2" onClick="selectTab(2);">Monster Energy</div>
     <div id="tab3" onClick="selectTab(3);">Monster Ultra</div>
     <div id="tab4" onClick="selectTab(4);">Monster Juice</div>
@@ -329,7 +327,7 @@ if ($resultats === false) {
             </div>
          </div>
 
-         <div class="final">
+         <div class="final" id="contact">
             <div>
                 <img src="./Assets/monser_logo.png" alt="">
             </div>

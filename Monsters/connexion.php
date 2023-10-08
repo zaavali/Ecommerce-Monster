@@ -1,4 +1,7 @@
+<?php
+session_start(); // Toujours commencer la session
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,11 +9,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="connexion.css">
-	<script src="./signin.js" defer></script>
+	<script src="./script.js" defer></script>
 	<title>Document</title>
-
+  
 </head>
 <body>
+  <div class="notification hidden ">
+  <?php
+if (isset($_SESSION['message'])) {
+    echo '<div class="englobe_valide" color: white;>';
+    echo '<div class="valid">';
+    echo '<p> <img src="./Assets/thumbs_up_sign.gif" alt="" width="50px" height="50px">  ' . $_SESSION['message'] . '</p>';
+    echo '</div>';
+    echo '</div>';
+    unset($_SESSION['message']); 
+}
+?>
+</div>
 <div class=" wrap_connexion">
 <div class="container" id="container">
   <div class="form-container sign-up-container">
