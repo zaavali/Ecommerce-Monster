@@ -3,7 +3,7 @@ session_start();
 
 class Modification {
     public function modif() { 
-        $dsn = "mysql:dbname=monster;host=localhost";
+        $dsn = "mysql:dbname=monsters;host=localhost";
         $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
         $db = new PDO($dsn, "root", "", $options);
 

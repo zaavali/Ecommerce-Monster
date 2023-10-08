@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données
-$mysqli = new mysqli("localhost", "root", "", "monster");
+$mysqli = new mysqli("localhost", "root", "", "monsters");
 
 // Vérification de la connexion
 if ($mysqli->connect_error) {

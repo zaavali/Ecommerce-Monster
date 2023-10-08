@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-$dsn= "mysql:dbname=monster;host=localhost";
+$dsn= "mysql:dbname=monsters;host=localhost";
 $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
 $db = new PDO($dsn,"root","",$options);
 $sql = "SELECT * FROM  utilisateurs";
@@ -23,7 +23,7 @@ if (isset($_SESSION['panier'])) {
     $ids = array_keys($_SESSION['panier']);
     
     if (!empty($ids)) {
-        $conn = new mysqli("localhost", "root", "", "monster");
+        $conn = new mysqli("localhost", "root", "", "monsters");
 
         if ($conn->connect_error) {
             die("Erreur de connexion à la base de données: " . $conn->connect_error);
@@ -47,7 +47,7 @@ if (isset($_SESSION['panier'])) {
 }
 ?>
 <?php
-$conn = new mysqli("localhost", "root", "", "monster");
+$conn = new mysqli("localhost", "root", "", "monsters");
 
 if ($conn->connect_error) {
     die("Erreur de connexion à la base de données: " . $conn->connect_error);

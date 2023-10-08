@@ -4,7 +4,7 @@ session_start();
 ?>
 
 <?php
-$conn = new mysqli("localhost", "root", "", "monster");
+$conn = new mysqli("localhost", "root", "", "monsters");
 
 if ($conn->connect_error) {
     die("Erreur de connexion à la base de données: " . $conn->connect_error);
