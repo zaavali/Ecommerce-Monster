@@ -30,7 +30,7 @@ if ($resultats === false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./script.js" defer></script>
+    <script src="./show.js" defer></script>
 </head>
 <body>
 <div class="navbar">
@@ -89,13 +89,7 @@ if ($resultats === false) {
         <input type="file" name="img" required>
         <input type="submit" value="Ajouter">
     </form>
-       <h1>Supprimer un élément de la base de données</h1>
-    <form action="suppression.php" method="POST">
-        <label for="id">ID de l'élément à supprimer :</label>
-        <input type="text" id="id" name="id" required><br><br>
-
-        <input type="submit" value="Supprimer">
-    </form>
+   
     </div>
     <div id="tab1Content" class="tabContent activecontent  ">  
     <div class="tabcontainer">
@@ -106,6 +100,7 @@ if ($resultats === false) {
             <a class="link_wrap" href="produit_details.php?id=<?= $unproduit['id'] ?>">      
                 <img class="bd_img" src="<?= $unproduit['img'] ?>" />
                 <p class="nom_prod"><b><?= $unproduit['nom'] ?></b></p>
+                <p class="prix"><b><?= $unproduit['prix'] ?>.00€</b></p>
                
             </a>
             <a href="suppression.php?id=<?= $unproduit['id'] ?>"><img src="./Assets/delete.png" alt="" width="20" height="20px"></a>
